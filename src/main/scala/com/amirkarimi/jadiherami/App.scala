@@ -9,6 +9,7 @@ import scala.annotation._
 object App {
 
   def main(args: Array[String]): Unit = {
+  
     val benefitIternationCount = getBenefitIterationCount()
     val benefitGap = 4
     
@@ -24,9 +25,6 @@ object App {
     }
   }
   
-  /*
-   * Returns the iteration count which is needed to reach the benefit
-   */
   def getBenefitIterationCount(n: Int = 1): Int = {
     val a = iterate(n)
     if (a > 6) {
@@ -41,10 +39,10 @@ object App {
       0
     } else {
       val minAge = math.min(age, 6)
-      val children = minAge * 2
+      val directChildren = minAge * 2
       
-      val childrenIterates = (1 until minAge).map(a => iterate(a + age - minAge))      
-      children + childrenIterates.map(_ * 2).sum
+      val childrenIterates = (0 until minAge).map(a => iterate(a + (age - minAge)))
+      directChildren + childrenIterates.map(_ * 2).sum
     }
   }
 }

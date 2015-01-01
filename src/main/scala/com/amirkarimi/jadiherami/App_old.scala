@@ -9,7 +9,7 @@ import scala.annotation._
 object App1 {
 
   private def main(args: Array[String]): Unit = {
-    val future = iterateAll(Person(), 17)    
+    val future = iterateAll(Person(), 13)    
     Await.ready(future, 1 hours)    
   }
   
@@ -48,7 +48,7 @@ object App1 {
 
   case class Person(age: Int = 0, children: Seq[Person] = Nil, totalChildrenCount: Int = 0) {
     def print = {
-      println(s"Age: $age | Childs: ${children.length} | TotalChild: ${totalChildrenCount}")
+      println(s"Age: $age | Childs: ${children.length} | TotalChild: ${totalChildrenCount + 1}")
     }
   }
 }
